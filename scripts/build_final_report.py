@@ -1496,7 +1496,7 @@ def ch10_blocks() -> List[Block]:
 OUTPUT_ROWS = [
     ["산출물", "위치", "비고"],
     ["코드 저장소", "github.com/devlee328288/Alpha_Stack",
-     "미러 gitlab.com/dev-dongwon05253/alpha_stack"],
+     "미러 gitlab.com/mygithub05253/alpha_stack"],
     ["대시보드 (공개)", "alphastack-qurious.streamlit.app\n"
                       "huggingface.co/spaces/data-student/alphastack-qurious",
      "Streamlit Cloud는 main 반영 시 자동 배포, Space는 수동 재빌드"],

@@ -105,7 +105,7 @@ git status --short --untracked-files=all
 | 원격 | 주소 | 범위 | 누가 |
 |---|---|---|---|
 | `origin` | github.com/devlee328288/Alpha_Stack | **모든 브랜치 + PR** | 팀 전원 |
-| `gitlab` | gitlab.com/dev-dongwon05253/alpha_stack | **`main` 만** | 이동원 개인 보관 |
+| `gitlab` | gitlab.com/mygithub05253/alpha_stack | **`main` 만** | 이동원 개인 보관 |
 
 ### GitLab 은 왜 main 만인가
 
