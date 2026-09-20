@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1640 500" width="1640" height="500" role="img" aria-labelledby="t d">
+<title id="t">AlphaStack 파이프라인 — 수집에서 검증까지</title>
+<desc id="d">KRX·DART·ECOS·FRED·KOSIS·공공데이터포털·예탁결제원 일곱 출처와 사람이 받은 업종 스냅샷을 ingest 계층이 SQLite 하나에 적재하고, supply 계층의 문 둘 가운데 as_of 정문은 개발구간을 늘 열어 주는 반면 봉인 입구는 홀드아웃 478거래일을 unseal.log 가 한 줄일 때만 한 번 연다. 그 뒤 features, models, evaluation, backtest 를 거쳐 dashboard 와 reports, Hugging Face private 두 레포로 나간다.</desc>
+
+<!-- ─────────────────────────────────────────────────────────────────────────
+     AlphaStack 히어로 구성도 — 이 SVG 가 정본이다 (중간 산출물이 없다).
+
+     다크 판(alphastack-pipeline.dark.svg)은 **아래 <style> 블록의 색 값 여덟 개만**
+     다르고 도형·글자·좌표는 한 글자도 다르지 않다. 색을 고칠 때는 두 파일의
+     style 블록을 함께 고친다 — 한쪽만 고치면 테마에 따라 그림이 갈린다.
+
+       토큰      라이트     다크
+       bg        #ffffff   #0d1117
+       ink       #1f2328   #f0f6fc
+       ink2      #59636e   #9198a1
+       ink3      #8c959f   #6e7681
+       line      #d1d9e0   #3d444d
+       panel     #f6f8fa   #151b23
+       accent    #1f6feb   #58a6ff
+       accentBg  #ddf4ff   #121d2f
+
+     색은 강조 한 가지(accent)와 무채색 세 단만 쓴다. 강조색은 `supply/` 에만 칠한다 —
+     칠해진 안쪽이 "시점 정합을 지키는 구역"이고 바깥은 아니라는 뜻이며,
+     그래서 범례가 따로 필요 없다.
+     ───────────────────────────────────────────────────────────────────────── -->
+<style>
+  .bg     { fill: #ffffff }
+  .ink    { fill: #1f2328 }
+  .ink2   { fill: #59636e }
+  .ink3   { fill: #8c959f }
+  .panel  { fill: #f6f8fa; stroke: #d1d9e0; stroke-width: 1.5 }
+  .accent { fill: #1f6feb }
+  .accentBox { fill: #ddf4ff; stroke: #1f6feb; stroke-width: 2.5 }
+  .innerBox  { fill: #ffffff; stroke: #1f6feb; stroke-width: 1.5 }
+  .sealBox   { fill: none;    stroke: #1f6feb; stroke-width: 1.5; stroke-dasharray: 6 5; opacity: .85 }
+  .flow   { stroke: #8c959f; stroke-width: 2.5; fill: none }
+  .flowDash { stroke: #1f6feb; stroke-width: 2; fill: none; stroke-dasharray: 6 5 }
+  .rule   { stroke: #d1d9e0; stroke-width: 1.5 }
+
+  text { font-family: Pretendard, "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", system-ui, sans-serif }
+  .h1     { font-size: 27px; font-weight: 700; letter-spacing: -.6px }
+  .h1 tspan.q { fill: #1f6feb }
+  .sub    { font-size: 14.5px }
+  .zone   { font-size: 12.5px; font-weight: 700; letter-spacing: .8px }
+  .name   { font-size: 18px;   font-weight: 700; letter-spacing: -.3px }
+  .body   { font-size: 14px }
+  .small  { font-size: 12.5px }
+  .tag    { font-size: 12px;   font-weight: 700 }
+</style>
+
+<rect class="bg" x="0" y="0" width="1640" height="500"/>
+
+<!-- 머리 -->
+<text class="h1 ink" x="40" y="40">AlphaStack <tspan class="q">파이프라인</tspan> — 수집에서 검증까지</text>
+<text class="sub ink2" x="40" y="64">일곱 출처 → 저장 → <tspan class="accent">as_of 정문</tspan> → 피처 · 모델 → 검증 · 백테스트 → 화면 · 결과</text>
+<line class="rule" x1="40" y1="80" x2="1600" y2="80"/>
+
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#8c959f"/>
+  </marker>
+  <marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6feb"/>
+  </marker>
+</defs>
+
+<!-- ① 외부 세계 ───────────────────────────────────────────────── -->
+<rect class="panel" x="40" y="104" width="280" height="300" rx="14"/>
+<text class="zone ink3" x="64" y="132">외부 세계</text>
+<text class="name ink" x="64" y="160">출처 일곱</text>
+<text class="body ink2" x="64" y="192">KRX OpenAPI · DART</text>
+<text class="body ink2" x="64" y="217">ECOS · FRED · KOSIS</text>
+<text class="body ink2" x="64" y="242">공공데이터포털</text>
+<text class="body ink2" x="64" y="267">예탁결제원</text>
+<line class="rule" x1="64" y1="288" x2="296" y2="288"/>
+<text class="small ink3" x="64" y="312">사람이 받은 업종 스냅샷</text>
+<text class="small ink3" x="64" y="332">36장 · 40,874행</text>
+<text class="small ink3" x="64" y="366">KRX 약관이 자동 수집을</text>
+<text class="small ink3" x="64" y="384">막아 사람이 받는다</text>
+
+<!-- ② ingest ──────────────────────────────────────────────────── -->
+<rect class="panel" x="356" y="104" width="280" height="300" rx="14"/>
+<text class="zone ink3" x="380" y="132">INGEST — INTERNAL</text>
+<text class="name ink" x="380" y="160">수집과 적재</text>
+<text class="body ink2" x="380" y="192">clients/ 응답을 정규화</text>
+<text class="body ink2" x="380" y="217">store/ 원문 bytes 보존</text>
+<line class="rule" x1="380" y1="238" x2="612" y2="238"/>
+<text class="body ink" x="380" y="264">SQLite 하나 · krx_cache.db</text>
+<text class="small ink2" x="380" y="288">v16 · 표 23개 · 6,685 MB</text>
+<text class="small ink2" x="380" y="308">일별시세 9,231,938행</text>
+<text class="small ink2" x="380" y="328">공시 1,555,556 · 재무 662,933</text>
+<text class="small ink3" x="380" y="366">소비 계층은 여기를 직접</text>
+<text class="small ink3" x="380" y="384">부르지 않는다 — 시험이 막는다</text>
+
+<!-- ③ supply — 강조색은 여기에만 ──────────────────────────────── -->
+<rect class="accentBox" x="672" y="104" width="336" height="300" rx="16"/>
+<text class="zone accent" x="694" y="132">SUPPLY — 문은 둘</text>
+
+<rect class="innerBox" x="694" y="144" width="292" height="104" rx="10"/>
+<text class="name accent" x="712" y="171">as_of 정문</text>
+<text class="small ink2" x="712" y="194">행 T 에 보이는 것은</text>
+<text class="small ink2" x="712" y="213">known_at ≤ T 인 것뿐</text>
+<text class="small ink3" x="712" y="235">개발구간 ~2024-08-31 · 늘 열림</text>
+
+<rect class="sealBox" x="694" y="262" width="292" height="104" rx="10"/>
+<text class="name accent" x="712" y="289">봉인 입구</text>
+<text class="small ink2" x="712" y="312">홀드아웃 478거래일</text>
+<text class="small ink2" x="712" y="331">2024-09-02 ~ 2026-08-24</text>
+<text class="small ink3" x="712" y="353">unseal.log 가 1줄일 때만 · 1회</text>
+
+<text class="small ink3" x="694" y="390">밖에서 ingest.store 를 부르면 시험이 실패한다</text>
+
+<!-- ④ 학습과 검증 ─────────────────────────────────────────────── -->
+<rect class="panel" x="1044" y="104" width="260" height="300" rx="14"/>
+<text class="zone ink3" x="1068" y="132">학습과 검증</text>
+<text class="name ink" x="1068" y="160">표 → 신호 → 판정</text>
+<text class="body ink2" x="1068" y="192">features/ 조합 A~K</text>
+<text class="body ink2" x="1068" y="217">models/ 최종 C · K</text>
+<text class="small ink3" x="1068" y="237">LogisticRegression</text>
+<line class="rule" x1="1068" y1="256" x2="1280" y2="256"/>
+<text class="body ink2" x="1068" y="282">evaluation/ 워크포워드</text>
+<text class="small ink3" x="1068" y="302">기준선 · MDD · Sharpe · 비용</text>
+<text class="body ink2" x="1068" y="328">backtest/ 분할매매</text>
+<text class="small ink3" x="1068" y="366">evaluation 은 models 를</text>
+<text class="small ink3" x="1068" y="384">import 하지 않는다 (0건)</text>
+
+<!-- ⑤ 산출 ────────────────────────────────────────────────────── -->
+<rect class="panel" x="1340" y="104" width="260" height="300" rx="14"/>
+<text class="zone ink3" x="1364" y="132">산출</text>
+<text class="name ink" x="1364" y="160">화면과 결과</text>
+<text class="body ink2" x="1364" y="192">dashboard/ Streamlit</text>
+<text class="small ink3" x="1364" y="212">Overview + 9페이지</text>
+<text class="body ink2" x="1364" y="240">reports/ 결과 · 품질 원장</text>
+<text class="small ink3" x="1364" y="260">unseal.log · 홀드아웃 성적</text>
+<line class="rule" x1="1364" y1="280" x2="1576" y2="280"/>
+<text class="body ink2" x="1364" y="306">HF private 두 레포</text>
+<text class="small ink3" x="1364" y="326">개발본 · 홀드아웃 결과</text>
+<text class="small ink3" x="1364" y="366">원자료는 저장소에도</text>
+<text class="small ink3" x="1364" y="384">HF 공개본에도 두지 않는다</text>
+
+<!-- 흐름 ──────────────────────────────────────────────────────── -->
+<path class="flow" d="M 322 254 L 352 254" marker-end="url(#ar)"/>
+<path class="flow" d="M 638 254 L 668 254" marker-end="url(#ar)"/>
+<path class="flow" d="M 1010 196 L 1040 196" marker-end="url(#ar)"/>
+<path class="flowDash" d="M 1010 314 L 1040 314" marker-end="url(#arA)"/>
+<path class="flow" d="M 1306 254 L 1336 254" marker-end="url(#ar)"/>
+
+<!-- 발 -->
+<line class="rule" x1="40" y1="432" x2="1600" y2="432"/>
+<text class="small ink3" x="40" y="458">실선 = 늘 흐르는 길 · 파란 점선 = 한 번만 열리는 길</text>
+<text class="small ink3" x="40" y="478">숫자는 2026-09-20 실측 (읽기 전용으로 연 krx_cache.db · 추적 파일)</text>
+<text class="small ink3" x="1600" y="458" text-anchor="end">팀 Qurious · 1차 프로젝트 2026-09-01 ~ 09-15</text>
+<text class="small ink3" x="1600" y="478" text-anchor="end">정본 docs/media/architecture/alphastack-pipeline.light.svg</text>
+</svg>
