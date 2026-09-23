@@ -18,8 +18,8 @@
      (2026-09-20 문서 확인). 깨지지는 않고 라이트 그림으로 강등될 뿐이라 이대로 둔다. -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/devlee328288/Alpha_Stack/main/docs/media/architecture/alphastack-pipeline.dark.svg">
-    <img src="https://raw.githubusercontent.com/devlee328288/Alpha_Stack/main/docs/media/architecture/alphastack-pipeline.light.svg" alt="AlphaStack 파이프라인 — KRX·DART 등 일곱 출처를 ingest 계층이 SQLite 하나에 적재하고, supply 계층의 as_of 정문을 통과한 개발구간 자료만 피처·모델로 가며, 봉인된 홀드아웃 478거래일은 unseal.log 가 한 줄일 때만 한 번 열린다. 그 뒤 evaluation·backtest 를 거쳐 dashboard·reports·HF private 두 레포로 나간다." width="880">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/architecture/alphastack-pipeline.dark.svg">
+    <img src="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/architecture/alphastack-pipeline.light.svg" alt="AlphaStack 파이프라인 — KRX·DART 등 일곱 출처를 ingest 계층이 SQLite 하나에 적재하고, supply 계층의 as_of 정문을 통과한 개발구간 자료만 피처·모델로 가며, 봉인된 홀드아웃 478거래일은 unseal.log 가 한 줄일 때만 한 번 열린다. 그 뒤 evaluation·backtest 를 거쳐 dashboard·reports·HF private 두 레포로 나간다." width="880">
   </picture>
 </p>
 
@@ -75,7 +75,7 @@ KOSPI200 은 사실상 0 에 가깝습니다 — 자세한 읽는 법은 [수행
 |---|---|
 | **주제** | 주가지수 데이터 활용 머신러닝·딥러닝 (AI 퀀트 4기 1차 프로젝트) |
 | **기간·인원** | 2026-09-01(화) ~ 09-15(화) · 4인 · koreaIT 노원 B강의실 |
-| **저장소** | https://github.com/devlee328288/Alpha_Stack (PUBLIC) · GitLab 미러 |
+| **저장소** | https://github.com/mygithub05253/Alpha_Stack (PUBLIC) · GitLab 미러 |
 | **화면** | Streamlit Overview + 9페이지 · 공개 배포 [HF Space](https://huggingface.co/spaces/data-student/alphastack-qurious) |
 | **자료 전달** | HuggingFace **private** 데이터셋 두 레포 — 원자료는 저장소에 두지 않습니다 |
 | **상태** | 🟢 1차 마무리 · 최종 모델 확정 · **홀드아웃 개봉 1회 — 확증 가능**<br>🟡 홀드아웃 비용 차감 성과는 1차 범위에서 내지 않았습니다 |
@@ -191,8 +191,8 @@ KOSPI200 은 사실상 0 에 가깝습니다 — 자세한 읽는 법은 [수행
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/devlee328288/Alpha_Stack/main/docs/media/architecture/alphastack-layers.dark.svg">
-    <img src="https://raw.githubusercontent.com/devlee328288/Alpha_Stack/main/docs/media/architecture/alphastack-layers.light.svg" alt="AlphaStack 계층과 의존 — 아래에서부터 common, ingest, supply, features, models 가 한 줄로 쌓여 위층이 바로 아래층에만 기댄다. supply 에는 as_of 정문과 봉인 입구 두 문이 있다. evaluation 은 이 줄 밖에 서서 포지션·수익률 배열만 받으므로 models 를 import 하지 않는다. backtest·timeseries·pipelines.refresh 가 그 옆에 서고, dashboard 는 맨 위에서 전부를 쓴다. features·models·evaluation 이 ingest 를 직접 import 하면 경계 시험이 막는다." width="960">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/architecture/alphastack-layers.dark.svg">
+    <img src="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/architecture/alphastack-layers.light.svg" alt="AlphaStack 계층과 의존 — 아래에서부터 common, ingest, supply, features, models 가 한 줄로 쌓여 위층이 바로 아래층에만 기댄다. supply 에는 as_of 정문과 봉인 입구 두 문이 있다. evaluation 은 이 줄 밖에 서서 포지션·수익률 배열만 받으므로 models 를 import 하지 않는다. backtest·timeseries·pipelines.refresh 가 그 옆에 서고, dashboard 는 맨 위에서 전부를 쓴다. features·models·evaluation 이 ingest 를 직접 import 하면 경계 시험이 막는다." width="960">
   </picture>
 </p>
 
@@ -444,7 +444,7 @@ ARIMA(Hannan-Rissanen)를 직접 구현했습니다. ⑨ 정상성 검정은 이
 ### 1. 설치
 
 ```bash
-git clone https://github.com/devlee328288/Alpha_Stack.git
+git clone https://github.com/mygithub05253/Alpha_Stack.git
 cd Alpha_Stack
 
 uv venv .venv --python 3.12
@@ -494,9 +494,9 @@ streamlit run dashboard/app.py      # 또는 dashboard/run.bat
 
 <table>
 <tr>
-<td width="33%"><img src="https://raw.githubusercontent.com/devlee328288/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/00_Overview.png" alt="Overview 화면 — 자료 규모와 파이프라인 상태를 한 장에 요약한다"></td>
-<td width="33%"><img src="https://raw.githubusercontent.com/devlee328288/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/02_Model_Lab.png" alt="Model Lab 화면 — 조합과 모델을 골라 화면 안에서 학습시키고 지표를 비교한다"></td>
-<td width="33%"><img src="https://raw.githubusercontent.com/devlee328288/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/04_Backtest.png" alt="Backtest 화면 — A·B·C 분할매매 전략의 누적 성과와 체결을 그린다"></td>
+<td width="33%"><img src="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/00_Overview.png" alt="Overview 화면 — 자료 규모와 파이프라인 상태를 한 장에 요약한다"></td>
+<td width="33%"><img src="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/02_Model_Lab.png" alt="Model Lab 화면 — 조합과 모델을 골라 화면 안에서 학습시키고 지표를 비교한다"></td>
+<td width="33%"><img src="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/04_Backtest.png" alt="Backtest 화면 — A·B·C 분할매매 전략의 누적 성과와 체결을 그린다"></td>
 </tr>
 <tr>
 <td><sub><b>Overview</b> — 자료 규모와 파이프라인 상태</sub></td>
@@ -675,7 +675,7 @@ python scripts/check_doc_links.py      # 깨진 링크가 있으면 exit 1
 ## 기여와 문의
 
 이 저장소는 **부트캠프 1차 팀 프로젝트**라 외부 기여를 받고 있지는 않습니다. 다만 코드를 읽다
-이상한 곳을 발견하셨다면 [이슈](https://github.com/devlee328288/Alpha_Stack/issues)로 알려 주시면
+이상한 곳을 발견하셨다면 [이슈](https://github.com/mygithub05253/Alpha_Stack/issues)로 알려 주시면
 고맙겠습니다.
 
 **팀원이라면** 작업 전에 이 둘을 읽습니다.
