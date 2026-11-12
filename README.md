@@ -1,6 +1,6 @@
 # Alpha_Stack · 팀 Qurious — 주가 등락 방향 예측과 성과 검증 엔진
 
-> 팀 Qurious(4인)의 1차 프로젝트 사본입니다 · 원본 [gitlab.com/mygithub05253/alpha_stack](https://gitlab.com/mygithub05253/alpha_stack)
+> 팀 Qurious(4인)가 진행한 1차 팀 프로젝트입니다 · 원본 저장소 [gitlab.com/mygithub05253/alpha_stack](https://gitlab.com/mygithub05253/alpha_stack)
 >
 > **제 역할 (신장환)** — 피처 · 품질 (`features/`): 기술 지표 피처 numpy 구현 · 파생 피처 4개 · 유동 임계값 · 지표 버그 수정
 
