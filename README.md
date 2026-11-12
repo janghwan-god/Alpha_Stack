@@ -1,5 +1,9 @@
 # Alpha_Stack · 팀 Qurious — 주가 등락 방향 예측과 성과 검증 엔진
 
+> 팀 Qurious(4인)의 1차 프로젝트 사본입니다 · 원본 [gitlab.com/mygithub05253/alpha_stack](https://gitlab.com/mygithub05253/alpha_stack)
+>
+> **제 역할 (신장환)** — 피처 · 품질 (`features/`): 기술 지표 피처 numpy 구현 · 파생 피처 4개 · 유동 임계값 · 지표 버그 수정
+
 5일 뒤 등락 방향을 맞히는 모델과, 그 결과를 믿어도 되는지 판별하는 검증 엔진을 따로 세운 프로젝트입니다.
 
 > **"맞히는 것보다 어려운 건, 맞혔다고 말해도 되는지 아는 것"**
