@@ -18,8 +18,8 @@
      (2026-09-20 문서 확인). 깨지지는 않고 라이트 그림으로 강등될 뿐이라 이대로 둔다. -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/architecture/alphastack-pipeline.dark.svg">
-    <img src="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/architecture/alphastack-pipeline.light.svg" alt="AlphaStack 파이프라인 — KRX·DART 등 일곱 출처를 ingest 계층이 SQLite 하나에 적재하고, supply 계층의 as_of 정문을 통과한 개발구간 자료만 피처·모델로 가며, 봉인된 홀드아웃 478거래일은 unseal.log 가 한 줄일 때만 한 번 열린다. 그 뒤 evaluation·backtest 를 거쳐 dashboard·reports·HF private 두 레포로 나간다." width="880">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/janghwan-god/Alpha_Stack/main/docs/media/architecture/alphastack-pipeline.dark.svg">
+    <img src="https://raw.githubusercontent.com/janghwan-god/Alpha_Stack/main/docs/media/architecture/alphastack-pipeline.light.svg" alt="AlphaStack 파이프라인 — KRX·DART 등 일곱 출처를 ingest 계층이 SQLite 하나에 적재하고, supply 계층의 as_of 정문을 통과한 개발구간 자료만 피처·모델로 가며, 봉인된 홀드아웃 478거래일은 unseal.log 가 한 줄일 때만 한 번 열린다. 그 뒤 evaluation·backtest 를 거쳐 dashboard·reports·HF private 두 레포로 나간다." width="880">
   </picture>
 </p>
 
@@ -191,8 +191,8 @@ KOSPI200 은 사실상 0 에 가깝습니다 — 자세한 읽는 법은 [수행
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/architecture/alphastack-layers.dark.svg">
-    <img src="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/architecture/alphastack-layers.light.svg" alt="AlphaStack 계층과 의존 — 아래에서부터 common, ingest, supply, features, models 가 한 줄로 쌓여 위층이 바로 아래층에만 기댄다. supply 에는 as_of 정문과 봉인 입구 두 문이 있다. evaluation 은 이 줄 밖에 서서 포지션·수익률 배열만 받으므로 models 를 import 하지 않는다. backtest·timeseries·pipelines.refresh 가 그 옆에 서고, dashboard 는 맨 위에서 전부를 쓴다. features·models·evaluation 이 ingest 를 직접 import 하면 경계 시험이 막는다." width="960">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/janghwan-god/Alpha_Stack/main/docs/media/architecture/alphastack-layers.dark.svg">
+    <img src="https://raw.githubusercontent.com/janghwan-god/Alpha_Stack/main/docs/media/architecture/alphastack-layers.light.svg" alt="AlphaStack 계층과 의존 — 아래에서부터 common, ingest, supply, features, models 가 한 줄로 쌓여 위층이 바로 아래층에만 기댄다. supply 에는 as_of 정문과 봉인 입구 두 문이 있다. evaluation 은 이 줄 밖에 서서 포지션·수익률 배열만 받으므로 models 를 import 하지 않는다. backtest·timeseries·pipelines.refresh 가 그 옆에 서고, dashboard 는 맨 위에서 전부를 쓴다. features·models·evaluation 이 ingest 를 직접 import 하면 경계 시험이 막는다." width="960">
   </picture>
 </p>
 
@@ -494,9 +494,9 @@ streamlit run dashboard/app.py      # 또는 dashboard/run.bat
 
 <table>
 <tr>
-<td width="33%"><img src="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/00_Overview.png" alt="Overview 화면 — 자료 규모와 파이프라인 상태를 한 장에 요약한다"></td>
-<td width="33%"><img src="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/02_Model_Lab.png" alt="Model Lab 화면 — 조합과 모델을 골라 화면 안에서 학습시키고 지표를 비교한다"></td>
-<td width="33%"><img src="https://raw.githubusercontent.com/mygithub05253/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/04_Backtest.png" alt="Backtest 화면 — A·B·C 분할매매 전략의 누적 성과와 체결을 그린다"></td>
+<td width="33%"><img src="https://raw.githubusercontent.com/janghwan-god/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/00_Overview.png" alt="Overview 화면 — 자료 규모와 파이프라인 상태를 한 장에 요약한다"></td>
+<td width="33%"><img src="https://raw.githubusercontent.com/janghwan-god/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/02_Model_Lab.png" alt="Model Lab 화면 — 조합과 모델을 골라 화면 안에서 학습시키고 지표를 비교한다"></td>
+<td width="33%"><img src="https://raw.githubusercontent.com/janghwan-god/Alpha_Stack/main/docs/media/%EB%B0%B0%ED%8F%AC%ED%99%94%EB%A9%B4/2026-09-15/04_Backtest.png" alt="Backtest 화면 — A·B·C 분할매매 전략의 누적 성과와 체결을 그린다"></td>
 </tr>
 <tr>
 <td><sub><b>Overview</b> — 자료 규모와 파이프라인 상태</sub></td>
